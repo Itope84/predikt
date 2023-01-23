@@ -13,7 +13,7 @@ const NavItem: React.FC<NavItemProps> = ({isActive = false, children}) => {
 const NavBar: React.FC = () => {
     return (
         <div>
-            <ul role="menubar" className="flex items-stretch h-10 bg-red-50">
+            <ul role="menubar" className="flex items-stretch h-10">
                 <NavItem isActive>Images</NavItem>
                 <NavItem>Predictions</NavItem>
             </ul>

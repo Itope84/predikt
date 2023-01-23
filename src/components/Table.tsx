@@ -33,14 +33,15 @@ const Table: React.FC<TableProps> = ({ columns, data }) => {
         <table className="w-full text-sm table-auto border-collapse">
             <thead>
                 <tr>
-                    {columns.map(column => <Th>{column.name}</Th>)}
+                    {columns.map((column, index) => <Th key={index}>{column.name}</Th>)}
                 </tr>
             </thead>
             <tbody className='bg-white'>
-                {data.map(row => (
-                    <tr>
-                        {columns.map(column => {
-                            return <Td>{ column.id ? row[column.id] : column.render?.(row) }</Td>
+                {/* Using index as keys is sufficient here because we don't expect the index of each item to change (no shuffling/sorting/filtering happening during/post render). If that were the case, it would be more ideal to find a different property to use as the key) */}
+                {data.map((row, index) => (
+                    <tr key={index}>
+                        {columns.map((column, cIndex) => {
+                            return <Td key={cIndex}>{ column.id ? row[column.id] : column.render?.(row) }</Td>
                         })}
                     </tr>
                 ))}
