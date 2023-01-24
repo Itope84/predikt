@@ -1,42 +1,8 @@
 {
-  "predictions": [
-    {
-      "imageId": "1234",
-      "title": "Hello",
-      "description": "World",
-      "id": 1
-    },
-    {
-      "imageId": "1234",
-      "title": "Hello",
-      "description": "World",
-      "id": 2
-    },
-    {
-      "imageId": "1234",
-      "title": "Hello",
-      "description": "World",
-      "id": 3
-    },
-    {
-      "imageId": "d9018663-aa09-43d2-b677-d26ffb75f7b0",
-      "title": "Predictor",
-      "description": "Suddenly predicting",
-      "timestamp": "2023-01-24T00:04:10.220Z",
-      "id": 4
-    },
-    {
-      "imageId": "e23c4e76-c092-4be2-ba28-74484ee6eade",
-      "title": "Predicting 4",
-      "description": "Lorem ipsum",
-      "timestamp": "2023-01-24T00:05:23.677Z",
-      "id": 5
-    }
-  ],
+  "predictions": [],
   "predict": {
     "description": "Detected objects",
-    "predictions": [
-      {
+    "predictions": [{
         "bbox": {
           "x1": 589,
           "x2": 1443,

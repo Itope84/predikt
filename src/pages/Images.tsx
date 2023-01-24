@@ -7,14 +7,7 @@ import { v4 as uuid } from 'uuid'
 import { useLocalStorageFetch } from '../utils/localstorage';
 import Modal from '../components/Modal';
 import { toast } from 'react-toastify';
-import { useEffect } from 'react';
-
-type SavedImage = {
-    id: string,
-    filename: string,
-    size: number,
-    timestamp: string
-}
+import { SavedImage } from '../utils/types';
 
 const ImagesPage = () => {
     const [images, setImages] = useState<File[]>([])

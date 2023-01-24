@@ -5,7 +5,9 @@ export const useLocalStorageFetch = <TData = any,>(id: string, placeholderData?:
     const [data, setData] = useState<TData | null>(placeholderData || null)
 
     const fetchData = () => {
-        const localData = JSON.parse(localStorage.getItem(id) || '')
+        const savedItem = localStorage.getItem(id)
+        if (!savedItem) return
+        const localData = JSON.parse(savedItem)
         setData(localData)
     }
 

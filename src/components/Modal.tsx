@@ -3,10 +3,11 @@ import { useEffect, useRef, useState } from "react"
 type ModalProps = {
     isOpen?: boolean
     closeModal: () => void
+    size?: 'md' | 'lg'
     children: React.ReactNode
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen = false, closeModal, children }) => {
+const Modal: React.FC<ModalProps> = ({ isOpen = false, closeModal, size = 'md', children }) => {
     const [lastFocused, setLastFocused] = useState(document.activeElement)
     const closeButtonRef = useRef<HTMLButtonElement>(null)
 
@@ -24,7 +25,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen = false, closeModal, children }) =
         <>
             {/* overlay */}
             <div className={`fixed top-0 left-0 flex items-center justify-center z-50 bg-gray-600 bg-opacity-50 h-full w-full ${isOpen ? '' : 'hidden'}`}>
-                <div className="relative mx-auto py-6 px-10 border w-11/12 md:w-4/5 lg:w-3/5 max-w-xl shadow-lg  rounded-lg bg-white">
+                <div className={`relative mx-auto py-6 px-10 border w-11/12 md:w-4/5 lg:w-3/5 ${size === 'md' ? 'max-w-xl' : 'max-w-3xl'} shadow-lg  rounded-lg bg-white`}>
                     {/* close button */}
                     <div className="absolute top-3 right-3 p-1">
                         <button ref={closeButtonRef} onClick={closeModal} className="text-gray-500 hover:text-gray-700">
