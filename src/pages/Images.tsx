@@ -56,13 +56,16 @@ const ImagesPage = () => {
         try {
             await fetch('http://localhost:3004/predictions', {
                 method: 'POST',
-                body: JSON.stringify({ imageId: activeImageId, title: title, description: description }),
+                // Ideally, timestamp should be handled by the server
+                body: JSON.stringify({ imageId: activeImageId, title, description, timestamp: new Date().toISOString() }),
                 headers: {
                     "Content-Type": "application/json"
                 },
             })
 
             toast.success("Success! Go to the predictions page to see your predictions")
+            setModalOpen(false)
+            setActiveImageId(null)
         } catch (e) {
             console.error(e)
             toast.error("Unable to create prediction")
@@ -101,8 +104,8 @@ const ImagesPage = () => {
                     ? <div className="">
                         <h3 className='text-center font-semibold'>Uploading:</h3>
                         <ul role='listbox' className='my-1'>
-                            {images.map((image) => (
-                                <li>
+                            {images.map((image, index) => (
+                                <li key={index}>
                                     {image.name} ({readableSize(image.size)})
                                     <button className='text-xs text-red-500 hover:text-red-700' onClick={() => { setImages(images.filter(img => img !== image)) } }>(remove)</button>
                                 </li>

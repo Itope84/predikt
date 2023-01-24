@@ -8,6 +8,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import ImagesPage from './pages/Images';
+import PredictPage from './pages/Predict';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
         {
           index: true,
           element: <ImagesPage />
+        },
+        {
+          path: "/predictions",
+          element: <PredictPage />
         }
       ]
     },

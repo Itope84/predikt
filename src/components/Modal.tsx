@@ -29,7 +29,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen = false, closeModal, children }) =
                     <div className="absolute top-3 right-3 p-1">
                         <button ref={closeButtonRef} onClick={closeModal} className="text-gray-500 hover:text-gray-700">
                             <svg className="w-6 h-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
                             </svg>
                         </button>
                     </div>
